@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Todocard from './Todocard';
+import React, { useState, useEffect } from "react";
+import Todocard from "./Todocard";
 
 const Todo = () => {
-  const [taskName, setTaskName] = useState('');
-  const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('Not Completed');
+  const [taskName, setTaskName] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("Not Completed");
   const [todos, setTodos] = useState([]);
   const [editingTodo, setEditingTodo] = useState(null);
 
-  const [filterOption, setFilterOption] = useState('All');
+  const [filterOption, setFilterOption] = useState("All");
 
   useEffect(() => {
     // Load todos from local storage when the component mounts
-    const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(storedTodos);
   }, []);
 
   useEffect(() => {
     // Save todos to local storage whenever todos state changes
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = () => {
@@ -29,9 +29,9 @@ const Todo = () => {
     };
 
     setTodos([...todos, newTodo]);
-    setTaskName('');
-    setDescription('');
-    setStatus('Not Completed');
+    setTaskName("");
+    setDescription("");
+    setStatus("Not Completed");
   };
 
   const deleteTodo = (index) => {
@@ -59,7 +59,7 @@ const Todo = () => {
   };
 
   const filterTodos = () => {
-    if (filterOption === 'All') {
+    if (filterOption === "All") {
       return todos;
     } else {
       return todos.filter((todo) => todo.status === filterOption);
@@ -101,12 +101,13 @@ const Todo = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-6 ">
-            <h4>My todos</h4>
+            <h4>My Todos</h4>
           </div>
           <div className="col md-6">
             <div className="d-flex justify-content-end">
-              <h4 htmlFor="status">Status : </h4>
+              <label className= "statuscheck" htmlFor="status">Status:</label>
               <select
+              className="statusdrop"
                 aria-label="Default select example"
                 value={filterOption}
                 onChange={(e) => setFilterOption(e.target.value)}

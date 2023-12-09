@@ -1,3 +1,8 @@
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-style: hidden;
+}
+
 input{
   outline-color: hsl(159, 36%, 49%);
   border-color: hsl(120, 95%, 41%);
@@ -13,4 +18,12 @@ div > button {
 }
 div button:hover{
   background-color: hsl(159, 36%, 41%);
+}
+.statusdrop{
+  border-radius: 5px;
+  background-color: hsl(39, 100%, 50%);
+  color: #fff;
+}
+.statuscheck{
+  margin-right: 10px;
 }
